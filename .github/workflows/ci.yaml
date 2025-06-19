@@ -7,18 +7,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: code checkout
+      - name: Code checkout
         uses: actions/checkout@v3
 
-      - name: setup python
-        uses: actions/setup-checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4  # Corrected from setup-checkout to setup-python
         with:
           python-version: '3.9'
 
-      - name: install flake8
-        run:
+      - name: Install flake8
+        run: |
           python -m pip install --upgrade pip
           pip install flake8
-      - name: run flake8
-        run: 
-          flake8 app.y
+
+      - name: Run flake8
+        run: flake8 app.py
